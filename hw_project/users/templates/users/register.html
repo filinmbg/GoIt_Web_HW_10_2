@@ -17,30 +17,33 @@
             <span>{{form.errors.username}}</span>
         </div>
         <div class="row mb-3 col-md-6">
-            <label class="form-label">Name</label>
+            <label class="form-label">Name
             {{form.first_name}}
+            </label>
             <span>{{form.errors.first_name}}</span>
         </div>
         <div class="row mb-3 col-md-6">
-            <label>Surname</label>
+            <label class="form-label">Surname
             {{form.last_name}}
+            </label>
             <span>{{form.errors.last_name}}</span>
         </div>
         <div class="row mb-3 col-md-6">
             <label class="form-label">Email
-                {{ form.emai l}}
+                {{ form.email}}
             </label>
             <span>{{form.errors.email}}</span>
         </div>
         <div class="row mb-3 col-md-6">
-            <label>Password:
+            <label class="form-label">Password:
             {{ form.password1 }}
             </label>
             <span>{{form.errors.password1}}</span>
         </div>
         <div class="row mb-3 col-md-6">
-            <label>Submit password:</label>
+            <label class="form-label">Submit password:
             {{ form.password2 }}
+            </label>
             <span>{{form.errors.password2}}</span>
         </div>
         <button type="submit" class="btn btn-info">Retry</button>

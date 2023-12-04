@@ -29,14 +29,17 @@
         </div>
 
         <div class="row mb-3 col-md-6">
-            <label>Password:
-            {{ form.password1 }}
+            <label class="form-label"> Password:
+            {{ form.password }}
             </label>
-            <span>{{form.errors.password1}}</span>
+            <span>{{ form.errors.password }}</span>
         </div>
 
+
+
         <button type="submit" class="btn btn-info">Retry</button>
-        <button type="submit" class="btn btn-primary">Registration</button>
+        <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
+
 </div>
 {% endblock %}
