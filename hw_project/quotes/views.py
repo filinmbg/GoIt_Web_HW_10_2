@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView
+from bson import ObjectId
 
 from .forms import AuthorForm, QuoteForm, TagForm
 from .models import Author, Quote, Tag
@@ -41,6 +43,26 @@ def add_author(request):
                   context={'title': 'Quotes to Scrape', 'form': form})
 
 
-def author(request, author_id):
-    author = get_object_or_404(Author, pk=author_id)
-    return render(request, "quotes/author.html", {"author": author})
+def authors_by_tags(request, tag_name):
+    """Перехід по тегу"""
+
+    tags = Tag.objects.filter(name=tag_name).first()
+    quotes = tags.quote_set.all()
+    return render(request, "quotes/tags.html", context={"quotes": quotes})
+
+
+def about(request, quote_id):
+    """Перехід по кнопці 'about'"""
+
+    description = Author.objects.filter(pk=quote_id)
+    return render(request, "quotes/description.html", context={"authors": description})
+
+class AuthorDetailView(DetailView):
+    template_name = 'quotes/author_detail.html'
+
+    def get(self, request, pk: str):
+        db = get_mongodb()
+        author = db.authors.find_one({'_id': ObjectId(pk)})
+        print(author)
+        return render(request, self.template_name, context={'author': author})
+

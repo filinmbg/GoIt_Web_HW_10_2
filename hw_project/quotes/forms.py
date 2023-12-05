@@ -3,6 +3,7 @@ from django.forms import ModelForm, CharField, TextInput, DateField, DateInput, 
 from .models import Author, Quote, Tag
 
 
+
 class AuthorForm(ModelForm):
     fullname = CharField(max_length=50, widget=TextInput(attrs={'class': 'form-control'}))
     born_date = DateField(widget=DateInput(attrs={'class': 'form-control'}))
@@ -32,3 +33,4 @@ class QuoteForm(ModelForm):
     class Meta:
         model = Quote
         fields = ['quote', 'author', 'tags']
+
