@@ -7,6 +7,8 @@ class Author(models.Model):
     born_date = models.CharField(max_length=100)
     born_location = models.CharField(max_length=120)
     description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return self.fullname
