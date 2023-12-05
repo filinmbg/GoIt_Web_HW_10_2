@@ -26,6 +26,8 @@
                     <a href="{% url 'users:register' %}" class="btn btn-primary">SignUp</a>
                     <a href="{% url 'users:signin' %}" class="btn btn-primary">Login</a>
                     {% else %}
+                    <a href="{% url 'quotes:add_author' %}" class="btn btn-link">Add author</a>
+                    <a href="{% url 'quotes:add_quote' %}" class="btn btn-link">Add quote</a>
                     <a href="{% url 'users:logout' %}" class="btn btn-primary">Logout </a>
 
                     {% endif %}
