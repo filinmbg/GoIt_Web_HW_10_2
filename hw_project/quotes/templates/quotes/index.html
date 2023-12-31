@@ -13,27 +13,14 @@
             <a href="{% url 'quotes:author_detail' pk=quote.author %}">(about)</a>
 
             </span>
-            <!--            <div class="tags">-->
-            <!--                Tags:-->
-            <!--                {% for tag in quote.tags %}-->
-            <!--                <a class="tag" href="/tag/change/page/1/">{{tag}}</a>-->
-            <!--                {% endfor %}-->
-            <!--            </div>-->
+
             <div class="tags">
                 Tags:
                 {% for tag in quote.tags %}
                 <a class="tag" href="{% url 'quotes:tags' tag_name=tag %}">{{tag}}</a>
                 {% endfor %}
             </div>
-
-<!--            <div class="tags">-->
-<!--                Tags:-->
-<!--                {% for tag in quote.tags.all %}-->
-<!--                <a class="tag" href="{% url 'quotes:tags' tag_name=tag %}">{{ tag }}</a>-->
-<!--                {% endfor %}-->
-<!--            </div>-->
         </div>
-
 
         {% endfor %}
         <nav>
